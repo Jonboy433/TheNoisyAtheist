@@ -5,7 +5,7 @@ Devise.setup do |config|
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = '2a7b73762f5edb843f75a4332daf5ecfd1fc1a63a2ac2ba1c8ee4726b87e23f69e999f4c408d229295c271f9559ac77ffb13784737c2b8f9c2d9b8fe6090b434'
-  config.authentication_keys = [ :login ]
+  config.authentication_keys = [ :user_id ]
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -41,7 +41,7 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :user_id ]
+  #config.case_insensitive_keys = [ :user_id ]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
