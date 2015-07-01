@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630012641) do
+ActiveRecord::Schema.define(version: 20150701003729) do
+
+  create_table "blogs", force: :cascade do |t|
+    t.string   "title",      limit: 255, null: false
+    t.string   "content",    limit: 255, null: false
+    t.string   "display_id", limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "blogs", ["display_id"], name: "index_blogs_on_display_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "user_id",                limit: 255, default: "", null: false

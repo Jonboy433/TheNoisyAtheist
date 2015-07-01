@@ -1,0 +1,11 @@
+<h1> Welcome to the Blog homepage blogs#index </h1>
+
+<% @blogs.each do |blog| %>
+	<%= link_to blog.title, blog_path(blog.display_id) %></br>
+	<%= blog.content %></br></br>
+<% end %>
+<br>
+<%= link_to "Log in", new_user_session_path, class: 'btn btn-success' %>
+<%= link_to "Log out", destroy_user_session_path, :method => :delete, class: 'btn btn-success' %>
+<%= link_to "Edit Account", edit_user_registration_path, class: 'btn btn-success'  %></br>
+<%= link_to "New Blog", blog_new_path, class: 'btn btn-success'  %></br>
