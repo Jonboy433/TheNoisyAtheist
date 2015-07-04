@@ -1,7 +1,8 @@
 <h1> blogs#edit page</h1>
 
-<%= simple_form_for @blog do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.button :submit %>
+<%= simple_form_for @blog, :url => blog_path(@blog.display_id) do |f| %>
+  <%= f.input :title, readonly: true %>
+  <%= f.input :content, as: :text %>
+  <%= f.button :submit, class: 'btn btn-success' %>
+  <%= link_to "Cancel", blog_path, class: 'btn btn-success' %>
 <% end %>
