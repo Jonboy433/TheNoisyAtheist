@@ -1,7 +1,13 @@
-<h1> <%= @blog.title %></h1></br>
+<h1> <%= @blog.title %></h1>
+<p>Submitted <%= time_ago_in_words(@blog.created_at) %> Ago by <%= @blog.user.user_id %></p>
+</br>
 
 <h2><%= @blog.content %></h2>
 
 <%= link_to "Home", root_path, class: 'btn btn-success' %>
+
+<% if current_user.id == @blog.user.id %>
 <%= link_to "Delete Blog", blog_path(@blog.display_id), method: :delete, class: 'btn btn-success' %>
 <%= link_to "Edit", blog_edit_path(@blog.display_id), class: 'btn btn-success'  %>
+<% end %>
+
