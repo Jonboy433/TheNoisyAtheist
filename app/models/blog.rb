@@ -4,4 +4,5 @@ class Blog < ActiveRecord::Base
 	validates :display_id, presence: true, length: { in: 5..100 }
 
 	belongs_to :user
+	has_many :comments
 end

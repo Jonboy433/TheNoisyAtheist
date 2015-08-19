@@ -9,6 +9,11 @@
 <body>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+<% if current_user == nil %>
+  <p> not signed in</p>
+<% else %>
+  <p> signed in as <%= current_user.user_id %> </p>
+<% end %>
 <%= yield %>
 
 </body>

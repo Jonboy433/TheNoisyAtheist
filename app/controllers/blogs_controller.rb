@@ -1,10 +1,8 @@
 class BlogsController < ApplicationController
+	before_action :all_blogs, only: [:index]
 	before_action :find_blog, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
-
-	def index
-		@blogs = Blog.all.order("created_at DESC")
-	end
+	#skip_before_filter :verify_authenticity_token, :only => [:destroy]
 
 	def new
 		@blog = Blog.new
@@ -21,7 +19,11 @@ class BlogsController < ApplicationController
 	end
 
 	def show
-		fresh_when @blog
+		#@comments = Comment.where(:blog_id => @blog.id)
+		@comments = @blog.comments
+		@comment = Comment.new
+		#fresh_when @blog
+		#fresh_when @comments
 	end
 
 	def edit
@@ -46,10 +48,16 @@ class BlogsController < ApplicationController
 
 	private
 
+	# replacing the index action
+	def all_blogs
+		@blogs = Blog.all.order("created_at DESC")
+	end
+
 	def blog_params
 		params.require(:blog).permit(:title, :content, :display_id, :user_id)
 	end
 
+	# Clean up the title for a more 
 	def create_display_id
 		params[:blog][:title] = params[:blog][:title].strip
 		params[:blog][:content] = params[:blog][:content].strip
@@ -61,6 +69,7 @@ class BlogsController < ApplicationController
 	
 	def find_blog
 		@blog = Blog.find_by_display_id(params[:id])
+		@user = current_user
 	end
 
 end

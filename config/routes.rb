@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   get 'blogs/:id' => 'blogs#show', as: 'blog'
   delete 'blogs/:id' => 'blogs#destroy'
   patch 'blogs/:id' => 'blogs#update'
+  post 'blogs/:id/comments' => 'comments#create', as: 'comment_create'
   get 'blogs/:id/edit' => 'blogs#edit', as: 'blog_edit'
 
 
