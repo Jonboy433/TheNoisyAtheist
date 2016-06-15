@@ -19,11 +19,8 @@ class BlogsController < ApplicationController
 	end
 
 	def show
-		#@comments = Comment.where(:blog_id => @blog.id)
 		@comments = @blog.comments
 		@comment = Comment.new
-		#fresh_when @blog
-		#fresh_when @comments
 	end
 
 	def edit

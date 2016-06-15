@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 gem 'devise'
 gem 'mysql2'
-gem 'simple_form', '~> 3.1.0'
+gem 'simple_form', '~> 3.2.1'
 gem 'bootstrap-sass', '~> 3.3.5.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

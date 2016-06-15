@@ -15,18 +15,15 @@
 </br>
 </br>
 
-<h1>
-<% if @comments.count == 1 %>
-	<%= @comments.count%> comment</h1>
-<% else %>
-	<%= @comments.count%> comments</h1>
-<% end %>
-
-<% @comments.each do |comment| %>
-		<p> <%=  comment.content %> - Submitted <%= time_ago_in_words(comment.created_at)%> ago by <%= comment.user.user_id%></p>
-<% end %>
+<div id="comments">
+	<h1><%= pluralize(@comments.count,"comment")%></h1>
+	<%= render @blog.comments %>		
+</div>
 
 <% unless current_user.blank? %>
 	<%= render "/comments/form" %>
 <% end %>
+
+<p> This is coming from the session: <%= session[:blog]%>
+
 
