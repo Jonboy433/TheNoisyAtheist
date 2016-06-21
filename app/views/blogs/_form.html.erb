@@ -1,5 +1,8 @@
 <%= simple_form_for @blog do |f| %>
   <%= f.input :title %>
   <%= f.input :content, as: :text %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: 'btn btn-success' %>
 <% end %>
+
+</br>
+<%= link_to "Cancel", root_path, class: 'btn btn-success' %>

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   patch 'blogs/:id' => 'blogs#update'
   post 'blogs/:id/comments' => 'comments#create', as: 'comment_create'
   get 'blogs/:id/edit' => 'blogs#edit', as: 'blog_edit'
+  get 'users/:id' => 'users#show', as: 'user'
 
 
   # Example of regular route:
