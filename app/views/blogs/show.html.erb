@@ -1,11 +1,11 @@
 <h1> <%= @blog.title %>
 	<% if user_signed_in? %>
 		<% if current_user.id == @blog.user.id %>
-			<a href= <%= edit_blog_url(@blog.display_id) %> ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+			<a href= <%= edit_blog_url(@blog.display_id) %>><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 		<% end %>
 	<% end%>
 </h1>
-<p>Submitted <%= time_ago_in_words(@blog.created_at) %> Ago by <%= @blog.user.user_id %></p>
+<p>Submitted <%= time_ago_in_words(@blog.created_at) %> Ago by <a href= <%= user_profile_url(@blog.user.user_id) %>> <%= @blog.user.user_id %></a></p>
 
 </br>
 <h2><%= @blog.content %></h2>
