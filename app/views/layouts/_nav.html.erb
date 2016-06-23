@@ -16,20 +16,6 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href= <%= root_path %> >Home <span class="sr-only">(current)</span></a></li>
         <li><a href=<%= blog_new_path %>>New Blog</a></li>
-        <!-- Removing this drop down for now
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-        -->
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -39,10 +25,25 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         
-        <% if !user_signed_in? %>
-        <li><a href= <%= new_user_session_path %> >Login</a></li>
+    <li class="dropdown">
+        <% if !user_signed_in? %>   
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In</a>
+        <ul class="dropdown-menu">
+        	<form method="post" action="/users/sign_in" method="post">
+        		<div class="login-content">
+              <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        			<p><input type="text" name="user[user_id]" value="" placeholder="Username"></p>
+        			<p><input type="password" name="user[password]" value="" placeholder="Password"></p>
+        		</div>
+        		<div class="login-footer">
+        		  <input type="submit" name="commit" value="Login">
+        		  <label><input type="checkbox" name="remember_me" id="remember_me">Remember me</label>
+        		<p><div class="register-user"><p>Not registered? <a href="users/sign_up">Click here to sign up</a></div> 
+    			  </div>
+      		</form>
+        </ul>
+        </li>
         <% else %>
-        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_user.user_id %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href= <%= profile_url(current_user.user_id) %> >Profile</a></li>
@@ -50,9 +51,11 @@
             <li><a href= <%= edit_user_registration_path %>>Account Settings</a></li>
             <li role="separator" class="divider"></li>
             <li><a href= <%= destroy_user_session_path %> data-method=delete>Logout</a></li>
-          </ul>
-          <% end %>
-        </li>
+          </ul>   
+        <% end %>
+    </li>
+
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
