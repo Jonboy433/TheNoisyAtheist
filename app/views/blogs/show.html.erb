@@ -8,18 +8,13 @@
 <p>Submitted <%= time_ago_in_words(@blog.created_at) %> Ago by <a href= <%= user_profile_url(@blog.user.user_id) %>> <%= @blog.user.user_id %></a></p>
 
 </br>
-<p><%= @blog.content %></p>
+	<p><%= @blog.content %></p>
 </br>
-</br>
 
-<div id="comments">
-	<h1><%= pluralize(@comments.count,"comment")%></h1>
-	<%= render @blog.comments %>		
-</div>
+<hr>
+<%= render '/comments/form' %>
+<hr>
 
-<% unless current_user.blank? %>
-	<%= render "/comments/form" %>
-<% end %>
-
-
+<h3><%= pluralize(@comments.count,"comment")%></h3>
+<%= render @blog.comments %>		
 

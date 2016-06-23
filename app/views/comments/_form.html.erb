@@ -1,4 +1,11 @@
-<%= simple_form_for @comment, :url => comment_create_path do |f| %>
-  <%= f.input :content, as: :text %>
-  <%= f.button :submit %>
-<% end %>
+<!-- Comments Form -->
+<div class="well">
+    <h4>Leave a Comment:</h4>
+    	<form action=<%= create_comment_url(@blog.display_id) %> role="form" method="post">
+            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<div class="form-group">
+                <textarea class="form-control" name="comment[content]" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+</div>

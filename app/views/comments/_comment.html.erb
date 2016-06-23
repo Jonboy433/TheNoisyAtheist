@@ -1,4 +1,11 @@
-<p> 
-<%=  comment.content %> - Submitted <%= time_ago_in_words(comment.created_at)%> 
-ago by <%= comment.user.user_id%>
-</p>
+<div class="media">
+    <a class="pull-left" href="#">
+        <img class="media-object" src="http://placehold.it/64x64" alt="">
+    </a>
+    <div class="media-body">
+        <h4 class="media-heading"><%= comment.user.user_id %>
+            <small><%= comment.created_at.strftime('%B %d, %Y %l:%M %p') %></small>
+            </h4>
+            <%= comment.content %>
+    </div>
+</div>

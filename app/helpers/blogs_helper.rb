@@ -8,6 +8,10 @@ module BlogsHelper
         sprintf("/blogs/%s",displayID)
     end
 
+    def create_comment_url(displayID)
+        sprintf("/blogs/%s/comments",displayID)
+    end
+    
     def user_profile_url(userID)
         sprintf("/users/%s",userID)
     end
