@@ -1,5 +1,16 @@
 <% @blogs.each do |blog| %>
-	<%= link_to blog.title, blog_path(blog.display_id) %></br>
-	<%= blog.content %></br></br>
+	<h2> <a href= <%= blog_url(blog.display_id) %> ><%= blog.title %></a> </h2>
+	<p class="lead"> by <a href= <%= user_profile_url(blog.user.user_id) %> > <%= blog.user.user_id %> </a> </p>
+
+	<p><span class="glyphicon glyphicon-time"></span> <%= blog.created_at.strftime('%B %d, %Y %l:%M %p') %>
+	</p>
+	<hr>
+	<img class="img-responsive" src="http://placehold.it/900x300" alt="">
+	<hr>
+	<p><%= blog.content %> </span></a>
+	<hr>
+	 <a class="btn btn-primary" href=<%= blog_url(blog.display_id) %> >Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+	<hr>
 <% end %>
-<br>
+
+
