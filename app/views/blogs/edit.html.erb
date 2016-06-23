@@ -3,6 +3,7 @@
 <%= simple_form_for @blog, :url => blog_path(@blog.display_id) do |f| %>
   <%= f.input :title, readonly: true %>
   <%= f.input :content, as: :text %>
-  <%= f.button :submit, class: 'btn btn-success' %>
+  <%= f.button :submit, 'Save', class: 'btn btn-success' %>
+  <%= link_to "Delete Blog", blog_path(@blog.display_id), method: :delete, class: 'btn btn-success' %>
   <%= link_to "Cancel", blog_path, class: 'btn btn-success' %>
 <% end %>

@@ -1,4 +1,6 @@
 class BlogsController < ApplicationController
+	include BlogsHelper
+
 	before_action :all_blogs, only: [:index]
 	before_action :find_blog, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
