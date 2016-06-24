@@ -5,8 +5,13 @@ class CommentsController < ApplicationController
 		@comment = @blog.comments.build(comment_params)
 		@comment.blog = @blog
     	@comment.user = current_user
-		@comment.save
-    	redirect_to blog_path(@blog.display_id)
+		
+		respond_to do |format|
+			if @comment.save
+    			format.html { redirect_to blog_path(@blog.display_id) }
+				format.js { render status: :created }
+			end
+		end
 	end
 	
 	

@@ -12,9 +12,14 @@
 </br>
 
 <hr>
-<%= render '/comments/form' %>
+	<div class="well">
+        <h4>Leave a Comment:</h4>
+			<%= render '/comments/form' %>
+	</div>
 <hr>
 
-<h3><%= pluralize(@comments.count,"comment")%></h3>
-<%= render @blog.comments %>		
+<h3 id="comments-count"><%= pluralize(@comments.count,"comment")%></h3>
+<div id="comments-list">
+<%= render @blog.comments %>
+</div>		
 

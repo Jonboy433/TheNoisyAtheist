@@ -1,0 +1,3 @@
+$('#comments-list').append("<%= j render @comment %>");
+$('.form-control').val("")
+$('#comments-count').html("<%= @comment.blog.comments.count %> comments");
