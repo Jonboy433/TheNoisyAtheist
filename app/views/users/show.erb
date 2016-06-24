@@ -1,6 +1,12 @@
 <div id="content">
-<label>Name:</label><%= @user.user_id %><br></input>
-<label>Email:</label><input type='text' value='<%= @user.email %>'><br>
+<label>Name:</label><%= @user.user_id %><br>
+<label>Email:</label>
+    <% if user_signed_in? && current_user.user_id == @user.user_id %>
+        <input type='text' value='<%= @user.email %>'>
+    <% else %>
+        <%= @user.email %>
+    <% end %>
+<br>
 <label>Last sign in: </label><%= @user.current_sign_in_at.strftime('%a %m/%d/%y %l:%M%p') %><br>
 </div>
 
@@ -14,3 +20,5 @@
     <p>Comment count: <%= @user.comments.count %>
     </div>
 </div>
+
+
