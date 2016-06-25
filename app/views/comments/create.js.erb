@@ -1,3 +1,13 @@
-$('#comments-list').append("<%= j render @comment %>");
-$('.form-control').val("")
-$('#comments-count').html("<%= @comment.blog.comments.count %> comments");
+<% if @saved %>
+    // Check for existing alert - remove if it exists
+    $('.alert').remove();
+
+    $('#comments-list').append("<%= j render @comment %>");
+    $('.form-control').val("")
+    $('#comments-count').html("<%= @comment.blog.comments.count %> comments");
+<% else %>
+    //Check for existing alert - remove if it exists
+    $('.alert').remove();
+
+    $('<div class="alert alert-danger" role="alert">We were unable to process your request</div>').insertBefore('.well');
+<% end %>
