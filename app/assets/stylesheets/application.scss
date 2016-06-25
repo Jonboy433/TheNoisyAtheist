@@ -13,3 +13,28 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.dropdown-menu {
+	margin: 5px;
+	padding: 5px;
+    width: 260px;
+    border-radius: 7px;
+}
+
+.dropdown-menu form {
+    margin-left: 8px;
+    margin-right: 8px;
+
+}
+
+form .alert {
+    width: 175px;
+    margin-bottom: 5px;
+    padding: 2px;
+
+}
+
+.login-content input {
+	border-radius: 7px;
+	width: 175px;
+}
