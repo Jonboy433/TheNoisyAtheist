@@ -1,11 +1,11 @@
-<form method="post" action="/users/sign_in" method="post">
+<form id="loginForm">
     <div class="login-content">
         <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
         <p><input type="text" name="user[user_id]" value="" placeholder="Username"></p>
     	<p><input type="password" name="user[password]" value="" placeholder="Password"></p>
     </div>
     	<div class="login-footer">
-    	  <input type="submit" name="commit" value="Login">
+    	  <input type="submit" name="commit" value="Login" id="submitLogin" >
      	  <label><input type="checkbox" name="remember_me" id="remember_me">Remember me</label><p>
         <div class="register-user"><p>Not registered? <a href="users/sign_up">Click here to sign up</a></div> 
     </div>
