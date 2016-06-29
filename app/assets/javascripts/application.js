@@ -22,7 +22,7 @@ $(document).ready(function(){
 
     $("#submitLogin").click(function(event){
         event.preventDefault();
-        
+
         var inputs = $("#loginForm").serializeArray();
         var uidLength = $("#formUID").val().length;
         var pwdLength = $("#formPWD").val().length;
@@ -45,6 +45,7 @@ $(document).ready(function(){
                         location.reload();                   
                     },
                     401: function(data){
+                        $("#loginMsg").remove();
                         //Add error message to login form for invalid credentials
                         var errorMsg = '<div class="alert alert-danger" id="loginMsg" role="alert">' + data.responseJSON.errors[0] + '</div>';
                         // $(".dropdown-menu").prepend(errorMsg);
